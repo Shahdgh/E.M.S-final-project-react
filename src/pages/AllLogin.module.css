@@ -1,0 +1,53 @@
+.colcard{
+    /* background-color: rgb(122, 74, 25); */
+    width: 100%;
+    display: flex; 
+    /* flex-direction: row; 
+    grid: 1fr 1fr 1fr 1fr; 
+   gap: 2px; */
+    gap: 5px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+  
+    }
+    .colcardd{
+    
+        width: 100%;
+       
+        /* margin-top: 10px;
+        margin-bottom: 10px; */
+        text-align: center;
+        box-shadow: 2px 3px 4px 5px rgb(151, 134, 134);
+        }
+    .cardimg{
+        width: 100%;
+        height: 300px;
+        border-radius: 4%;
+    }
+    .cardimg:hover{
+        transform: scale(1.2);
+        transition: 0.5s;
+        cursor: pointer;
+    
+    }
+    .cardtitle,
+    .cardtitlee{
+    color: rgb(8, 8, 8);
+    font-size: 20px;
+    font-weight: bold;
+    }
+    .cardtitlee{
+        padding-top: 3px;
+    }
+    
+    
+    /*******ICON Lactoin Devic********/
+    .icon{
+        color: rgb(107, 20, 20);
+       text-align: start;
+        font-size: 25px;
+       
+       cursor: pointer;
+    }
+    
