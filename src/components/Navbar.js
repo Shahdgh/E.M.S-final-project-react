@@ -40,6 +40,12 @@ function NavbarItem() {
               <Link style={{ fontSize: "15px", color: "white", textDecoration: "none" }} to="/menu">
                 menu
               </Link>
+            
+            </Nav.Link>
+            <Nav.Link>
+            <Link style={{ fontSize: "15px", color: "white", textDecoration: "none" }} to="/all-drinks">
+                Drinks
+              </Link>
             </Nav.Link>
             {localStorage.tokenPatient || localStorage.tokenDietitian || localStorage.tokenCompanion 
               || localStorage.tokenEmployee ? (
@@ -61,6 +67,9 @@ function NavbarItem() {
           {localStorage.tokenPatient || localStorage.tokenDietitian || localStorage.tokenCompanion 
               || localStorage.tokenEmployee ? (
             <Nav className="ms-auto">
+                  <Link style={{ fontSize: "15px", color: "white" }} className="nav-link" to="/cart">
+                Cart
+              </Link>
               <Link style={{ fontSize: "15px", color: "white" }} className="nav-link" to="/profile">
                 Profile
               </Link>
@@ -73,9 +82,9 @@ function NavbarItem() {
               <Link style={{ fontSize: "15px", color: "white" }} className="nav-link" to="/all-login">
               login
               </Link>
-              <Link style={{ fontSize: "15px", color: "white" }} className="nav-link" to="/cart">
+              {/* <Link style={{ fontSize: "15px", color: "white" }} className="nav-link" to="/cart">
                 Cart
-              </Link>
+              </Link> */}
             </Nav>
           )}
           

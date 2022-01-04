@@ -45,7 +45,8 @@ function DietitianInformation() {
                 Edit <AiFillEdit/>
               </CDBBtn>
               <DietitianEditModal show={editShow} setShow={setEditShow}  />
-             
+              
+              
             </div>
           </CDBCardBody>
         </CDBCard>

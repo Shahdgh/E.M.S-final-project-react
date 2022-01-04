@@ -15,11 +15,12 @@ import Menu from "./pages/Menu"
 import AllLogin from "./pages/AllLogin"
 import DietitianLogin from "./pages/DietitianLogin"
 import Meals from "./pages/Meals"
-import ProfileEmplyee from "./pages/ProfileEmplyee"
+
 import ProfileEmployee from "./pages/ProfileEmplyee"
 import ProfilePatient from "./pages/ProfilePatient"
 import ProfileDietitian from "./pages/ProfileDietitian"
 import ProfileCompanion from "./pages/ProfileCompanion"
+import AllDrinks from "./pages/AllDrinks"
 
 // imoprt navigate
 
@@ -28,7 +29,12 @@ function App() {
 
   const [ingredients, setIngredients] = useState([])
 
-  const [meals, setMeals] = useState([])
+  // const [meals, setMeals] = useState([])
+  const [mealPatients, setMealPatients] = useState([])
+
+  
+
+  // const [mealPatients, setMealPatients] = useState([])
   const [profileEmployees, setProfileEmplyees] = useState({})
   const [profilePatients, setProfilePatients] = useState({})
   const [profileDietitians, setProfileDietitians] = useState({})
@@ -50,15 +56,27 @@ function App() {
     setTyps(response.data)
   }
 
-  const getMeals = async () => {
-    const response = await axios.get("http://localhost:5000/api/meals")
-    setMeals(response.data)
+  // const getMeals = async () => {
+  //   const response = await axios.get("http://localhost:5000/api/meals")
+  //   setMeals(response.data)
+  // }
+//////////////////////////////////////////////////////////////////////
+  const getMealPatients = async () => {
+    const response = await axios.get("http://localhost:5000/api/meals/patient",{
+      headers: {
+        Authorization: localStorage.tokenDietitian,
+      },
+    })
+    setMealPatients(response.data)
+    console.log(response.data)
   }
-
+  //////////////////////////////////////
   useEffect(() => {
     getIngredients()
     getTypes()
-    getMeals()
+    // getMeals()
+  
+    // mealPatient()
     if (localStorage.tokenEmployee) {
       getProfileEmployees()
     }
@@ -69,6 +87,7 @@ function App() {
     }
     if (localStorage.tokenDietitian) {
       getProfileDiettitians()
+      getMealPatients()
     }
   }, [])
 
@@ -346,6 +365,34 @@ function App() {
       else console.log(error)
     }
   }
+
+  // ////
+  const editMealPatient = async(e, mealpatientId)=> {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const mealBody = {
+        // patient: form.elements.patient.value,
+        // ingredients: form.elements.ingredients.value,
+
+        comment: form.elements.comment.value,
+        status: form.elements.status.value,
+     
+      }
+      await axios.put(`http://localhost:5000/api/meals/patient/${mealpatientId}`, mealBody.comment,{
+        headers: {
+          Authorization: localStorage.tokenDietitian,
+        },
+      })
+      console.log("lkjhgfd");
+      toast.success("meals Edit")
+      // navigate("/")
+     getMealPatients()
+  
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  }
   /////////logout///////////
   const logout = () => {
     localStorage.removeItem("tokenPatient")
@@ -368,7 +415,7 @@ function App() {
     ////
     ingredients,
     types,
-    meals,
+    // meals,
     ////
     profileEmployees,
     editEmployee,
@@ -382,6 +429,10 @@ function App() {
     profileCompanions,
     editCompanion,
     ///
+
+    mealPatients,
+
+    editMealPatient,
   }
 
   return (
@@ -392,7 +443,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/meals" element={<Meals />} />
+          <Route path="/meals" element={
+              localStorage.tokenDietitian ? <Meals /> :null} />
+          <Route path="/all-drinks" element={<AllDrinks />} />
+
 
           <Route path="/all-login" element={<AllLogin />} />
           <Route path="/employee-login" element={<EmployeeLogin />} />
@@ -400,7 +454,7 @@ function App() {
           <Route path="/dietitian-login" element={<DietitianLogin />} />
           <Route path="/patient-login" element={<PatientLogin />} />
 
-          {/* <Route path="/profile" element={<ProfileEmployee />} /> */}
+         
           <Route
             path="/profile"
             element={
@@ -410,6 +464,7 @@ function App() {
               : localStorage.tokenEmployee ?<ProfileEmployee/>  :null
             }
           />
+          
    
         </Routes>
       </HospitalsContext.Provider>
