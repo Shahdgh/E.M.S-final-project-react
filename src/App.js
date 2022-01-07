@@ -20,7 +20,10 @@ import ProfileEmployee from "./pages/ProfileEmplyee"
 import ProfilePatient from "./pages/ProfilePatient"
 import ProfileDietitian from "./pages/ProfileDietitian"
 import ProfileCompanion from "./pages/ProfileCompanion"
-import AllDrinks from "./pages/AllDrinks"
+import AllDrinks from "./pages/MenuType"
+import { MdSend } from "react-icons/md"
+import Cart from "./pages/Cart"
+import SidebarCart from "./components/SidebarCart"
 
 // imoprt navigate
 
@@ -31,8 +34,6 @@ function App() {
 
   // const [meals, setMeals] = useState([])
   const [mealPatients, setMealPatients] = useState([])
-
-  
 
   // const [mealPatients, setMealPatients] = useState([])
   const [profileEmployees, setProfileEmplyees] = useState({})
@@ -56,13 +57,13 @@ function App() {
     setTyps(response.data)
   }
 
-  // const getMeals = async () => {
-  //   const response = await axios.get("http://localhost:5000/api/meals")
+  // const getMeals = async (mealId) => {
+  //   const response = await axios.get(`http://localhost:5000/api/meals${mealId}`)
   //   setMeals(response.data)
   // }
-//////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
   const getMealPatients = async () => {
-    const response = await axios.get("http://localhost:5000/api/meals/patient",{
+    const response = await axios.get("http://localhost:5000/api/meals/patient", {
       headers: {
         Authorization: localStorage.tokenDietitian,
       },
@@ -75,12 +76,12 @@ function App() {
     getIngredients()
     getTypes()
     // getMeals()
-  
+
     // mealPatient()
     if (localStorage.tokenEmployee) {
       getProfileEmployees()
     }
-      getProfileCompanions()
+    getProfileCompanions()
     // }
     if (localStorage.tokenPatient) {
       getProfilePatients()
@@ -105,7 +106,7 @@ function App() {
           Authorization: localStorage.tokenEmployee,
         },
       })
-      localStorage.tokenFood = response.data
+      localStorage.tokenEmployee = response.data
       toast.success("login success")
       navigate("/")
     } catch (error) {
@@ -316,7 +317,7 @@ function App() {
           Authorization: localStorage.tokenCompanion,
         },
       })
-      localStorage.tokenFood = response.data
+      localStorage.tokenCompanion = response.data
       toast.success("login success")
       navigate("/")
     } catch (error) {
@@ -365,41 +366,97 @@ function App() {
       else console.log(error)
     }
   }
-
-  // ////
-  const editMealPatient = async(e, mealpatientId)=> {
-    e.preventDefault()
+  /////////////
+  // Add Meals patient ////
+  const addMealPatient = async mealIngredients => {
     try {
-      const form = e.target
       const mealBody = {
-        // patient: form.elements.patient.value,
-        // ingredients: form.elements.ingredients.value,
-
-        comment: form.elements.comment.value,
-        status: form.elements.status.value,
-     
+        ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
       }
-      await axios.put(`http://localhost:5000/api/meals/patient/${mealpatientId}`, mealBody.comment,{
+      await axios.post(`http://localhost:5000/api/meals/patient`, mealBody, {
         headers: {
-          Authorization: localStorage.tokenDietitian,
+          Authorization: localStorage.tokenPatient,
         },
       })
-      console.log("lkjhgfd");
-      toast.success("meals Edit")
-      // navigate("/")
-     getMealPatients()
-  
+
+      toast.success("The Request has been sent , waiting for the Dietitian To accept")
+      navigate("/menu")
+      getProfilePatients()
     } catch (error) {
       console.log(error.response.data)
     }
   }
+ // Add Meals Employee ////
+ const addMealEmployee = async mealIngredients => {
+  try {
+    const mealBody = {
+      ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
+    }
+    await axios.post(`http://localhost:5000/api/meals/employee`, mealBody, {
+      headers: {
+        Authorization: localStorage.tokenEmployee,
+      },
+    })
+
+    toast.success("Your request has been accepted and it will be delivered to within an hour")
+    navigate("/menu")
+    getProfileEmployees()
+  } catch (error) {
+    console.log(error.response.data)
+  }
+}
+ // Add Meals Companion////
+ const addMealCompanion = async mealIngredients => {
+  try {
+    const mealBody = {
+      ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
+    }
+    await axios.post(`http://localhost:5000/api/meals/companion`, mealBody, {
+      headers: {
+        Authorization: localStorage.tokenCompanion,
+      },
+    })
+
+    toast.success("Your request has been accepted and it will be delivered to within an hour")
+    navigate("/menu")
+    getProfileCompanions()
+  } catch (error) {
+    console.log(error.response.data)
+  }
+}
+  // Edit Meals patient ////
+  const editMealPatient = async (e, mealPatientId) => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const mealBody = {
+        comment: form.elements.comment.value,
+        status: form.elements.status.value,
+      }
+      await axios.put(`http://localhost:5000/api/meals/patient/${mealPatientId}`, mealBody, {
+        headers: {
+          Authorization: localStorage.tokenDietitian,
+        },
+      })
+
+      console.log("lkjhgfd")
+      toast.success("meals Edit")
+      navigate("/")
+      getMealPatients()
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  }
+
+  ///////////////
+  
   /////////logout///////////
   const logout = () => {
     localStorage.removeItem("tokenPatient")
     localStorage.removeItem("tokenDietitian")
     localStorage.removeItem("tokenEmployee")
     localStorage.removeItem("tokenCompanion")
- 
+
     navigate("/")
   }
 
@@ -411,7 +468,7 @@ function App() {
     signCompanion, ///ماشتغل
     loginCompanion,
     logout,
-  
+
     ////
     ingredients,
     types,
@@ -432,7 +489,10 @@ function App() {
 
     mealPatients,
 
+    addMealPatient,
     editMealPatient,
+    addMealEmployee,//////////////////////////////////////////////////////////////////////
+    addMealCompanion,
   }
 
   return (
@@ -443,10 +503,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/meals" element={
-              localStorage.tokenDietitian ? <Meals /> :null} />
-          <Route path="/all-drinks" element={<AllDrinks />} />
-
+          <Route path="/meals" element={localStorage.tokenDietitian || localStorage.tokenPatient ? <Meals /> : null} />
+          {/* <Route path="/all-drinks" element={<AllDrinks />} /> */}
 
           <Route path="/all-login" element={<AllLogin />} />
           <Route path="/employee-login" element={<EmployeeLogin />} />
@@ -454,18 +512,22 @@ function App() {
           <Route path="/dietitian-login" element={<DietitianLogin />} />
           <Route path="/patient-login" element={<PatientLogin />} />
 
-         
           <Route
             path="/profile"
             element={
-              localStorage.tokenPatient ? <ProfilePatient /> 
-              : localStorage.tokenDietitian ? <ProfileDietitian /> 
-              : localStorage.tokenCompanion ?<ProfileCompanion/> 
-              : localStorage.tokenEmployee ?<ProfileEmployee/>  :null
+              localStorage.tokenPatient ? (
+                <ProfilePatient />
+              ) : localStorage.tokenDietitian ? (
+                <ProfileDietitian />
+              ) : localStorage.tokenCompanion ? (
+                <ProfileCompanion />
+              ) : localStorage.tokenEmployee ? (
+                <ProfileEmployee />
+              ) : null
             }
           />
-          
-   
+
+          {/* <Route path="/cart" element={ localStorage.tokenPatient ?<SidebarCart />:null} /> */}
         </Routes>
       </HospitalsContext.Provider>
     </>

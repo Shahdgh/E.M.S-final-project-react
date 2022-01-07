@@ -6,7 +6,8 @@ import HospitalsContext from "../utils/HospitalsContext"
 
 function ProfileCompanion() {
   const { profileCompanions } = useContext(HospitalsContext)
- 
+  if (!profileCompanions) return <h1>Loading...</h1>
+
   return (
     <>
      

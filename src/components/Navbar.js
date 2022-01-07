@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 import HospitalsContext from "../utils/HospitalsContext"
 function NavbarItem() {
-  const { logout,profilePatients } = useContext(HospitalsContext)
+  const { logout } = useContext(HospitalsContext)
 
   return (
     <>
@@ -42,11 +42,11 @@ function NavbarItem() {
               </Link>
             
             </Nav.Link>
-            <Nav.Link>
+            {/* <Nav.Link>
             <Link style={{ fontSize: "15px", color: "white", textDecoration: "none" }} to="/all-drinks">
                 Drinks
               </Link>
-            </Nav.Link>
+            </Nav.Link> */}
             {localStorage.tokenPatient || localStorage.tokenDietitian || localStorage.tokenCompanion 
               || localStorage.tokenEmployee ? (
               <Nav.Link>

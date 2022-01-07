@@ -14,7 +14,7 @@ function Types() {
           <img src={type.image} alt="sample41" />
           <figcaption>
             <h2> {type.name} </h2>
-            <Link to="all-drinks"></Link>
+            {/* <Link to="menu:typeIngredient"></Link> */}
             {/* <a href=""></a> */}
           </figcaption>
         </figure>

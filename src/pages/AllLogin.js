@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 function AllLogin() {
   return (
     <>
-    <Row>
+    <Row md={2}>
       <Col >
         <Card className={styles.colcard}>
           <Card.Body className={styles.colcardd}>

@@ -5,7 +5,8 @@ import HospitalsContext from "../utils/HospitalsContext"
 
 function ProfileDietitian() {
   const { profileDietitians } = useContext(HospitalsContext)
-  console.log(profileDietitians)
+  if (!profileDietitians) return <h1>Loading...</h1>
+  // console.log(profileDietitians)
 
   return (
     <>

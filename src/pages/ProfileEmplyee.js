@@ -4,7 +4,8 @@ import HospitalsContext from "../utils/HospitalsContext"
 
 function ProfileEmployee() {
   const { profileEmployees } = useContext(HospitalsContext)
-  console.log(profileEmployees)
+  if (!profileEmployees) return <h1>Loading...</h1>
+  // console.log(profileEmployees)
   return (
     <>
       {/* {profileEmployees.map(profileEmployee => ( */}
