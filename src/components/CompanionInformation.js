@@ -16,7 +16,7 @@ import { MdEmail } from "react-icons/md";
 import { IoIdCardSharp } from "react-icons/io5";
 import { AiFillEdit } from "react-icons/ai";
 import CompanionEditModal from "./CompanionEditModal"
-
+import companion from "../assets/compianion.jpg"
 
 function CompanionInformation() {
     const [editShow, setEditShow] = useState(false)
@@ -24,7 +24,7 @@ function CompanionInformation() {
     return (
          <CDBContainer>
         <CDBCard style={{ width: "35rem" }}>
-          <Image className="img-fluid" src="https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
+          <Image className="img-fluid" src={companion}/>
           <Image style={{ marginTop: "-5rem", textAlign:"center",alignItems:"center",marginLeft:"35%" }} className=" border " width="150px" src={profileCompanions.avatar} />
           <CDBCardBody className="d-flex flex-column align-items-center mb-4">
             <h2 style={{fontSize:"20px",fontWeight:"800"}}>

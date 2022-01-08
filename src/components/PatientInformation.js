@@ -24,9 +24,9 @@ function PatientInformation() {
   const { profilePatients } = useContext(HospitalsContext)
   return (
     <>
-      <CDBContainer>
-        <CDBCard style={{ width: "35rem" }}>
-          <Image className="img-fluid" src="https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
+      <CDBContainer >
+        <CDBCard style={{ width: "35rem",marginTop: "110px",padding:"30px" }} >
+          <Image className="img-fluid" src="https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
           <Image style={{ marginTop: "-5rem", textAlign:"center",alignItems:"center",marginLeft:"35%" }} className=" border " width="150px" src={profilePatients.avatar} />
           <CDBCardBody className="d-flex flex-column align-items-center mb-4">
             <h2  style={{fontSize:"25px",fontWeight:"800"}} >

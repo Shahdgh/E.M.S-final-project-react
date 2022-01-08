@@ -1,10 +1,12 @@
 
 import { useContext, useState } from "react"
 import { Col, Card,Row, Button } from "react-bootstrap"
-import image from "../assets/g.jpg"
+import patient from "../assets/patient.jpg"
+import companion from "../assets/compianion.jpg"
+import dietitian from "../assets/Dietitian.jpg"
 import styles from "./AllLogin.module.css"
 //icon
-import { GrUserManager} from "react-icons/gr"
+import { MdFamilyRestroom} from "react-icons/md"
 import { FaProcedures,FaUserMd ,FaHospitalUser} from "react-icons/fa"
 
 import { FcMultipleDevices, } from "react-icons/fc";
@@ -13,13 +15,13 @@ import { Link } from "react-router-dom"
 function AllLogin() {
   return (
     <>
-    <Row md={2}>
+    <Row md={2} xs={1}>
       <Col >
         <Card className={styles.colcard}>
           <Card.Body className={styles.colcardd}>
-            <Card.Img className={styles.cardimg} src="https://media.istockphoto.com/photos/supporting-patient-health-with-multiple-disciplines-picture-id1163467716?s=2048x2048" />
+            <Card.Img className={styles.cardimg} src="https://labblog.uofmhealth.org/sites/lab/files/2018-06/michigan-med-l-doc-wardrobe.jpg" />
             <Card.Title className={styles.cardtitlee}>
-            <Link to="/employee-login"> <FaHospitalUser color="dark" className={styles.icon} /> Employee</Link>
+            <Link to="/employee-login" style={{textDecoration: "none",color:"#32502E",}}> <FaHospitalUser color="dark" className={styles.icon} /> Employee</Link>
             </Card.Title> 
           </Card.Body>
         </Card>
@@ -28,9 +30,9 @@ function AllLogin() {
       <Col>
         <Card className={styles.colcard}>
           <Card.Body className={styles.colcardd}>
-            <Card.Img className={styles.cardimg} src={image} />
+            <Card.Img className={styles.cardimg} src={patient} />
             <Card.Title className={styles.cardtitlee}>
-            <Link to="/patient-login"> <FaProcedures color="dark" className={styles.icon} /> Patients</Link>
+            <Link to="/patient-login"  style={{textDecoration: "none",color:"#32502E",}}> <FaProcedures color="dark" className={styles.icon} /> Patients</Link>
             </Card.Title>
        
           
@@ -41,9 +43,9 @@ function AllLogin() {
       <Col>
         <Card className={styles.colcard}>
           <Card.Body className={styles.colcardd}>
-            <Card.Img className={styles.cardimg} src={image} />
+            <Card.Img className={styles.cardimg}src={dietitian} />
             <Card.Title className={styles.cardtitlee}> 
-            <Link to="/dietitian-login">  <FaUserMd color="dark" className={styles.icon} /> Dietitians</Link>
+            <Link to="/dietitian-login"  style={{textDecoration: "none",color:"#32502E",}}>  <FaUserMd color="dark" className={styles.icon} /> Dietitians</Link>
             </Card.Title>
         
           
@@ -53,9 +55,9 @@ function AllLogin() {
       <Col>
         <Card className={styles.colcard}>
           <Card.Body className={styles.colcardd}>
-            <Card.Img className={styles.cardimg} src={image} />
+            <Card.Img className={styles.cardimg}src={companion} />
             <Card.Title className={styles.cardtitlee}>
-            <Link to="/companion-login"> <GrUserManager color="dark" className={styles.icon} /> Patient Compianion</Link>
+            <Link to="/companion-login"  style={{textDecoration: "none",color:"#32502E",}}> <MdFamilyRestroom color="dark" className={styles.icon} /> Patient Compianion</Link>
             </Card.Title>
           
           

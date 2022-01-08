@@ -6,13 +6,17 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
 import HospitalsContext from "../utils/HospitalsContext"
+import { GoSignOut,GoSignIn } from "react-icons/go"
+import {ImProfile} from "react-icons/im"
+
+
 function NavbarItem() {
   const { logout } = useContext(HospitalsContext)
 
   return (
     <>
       <Navbar
-        style={{ height: "10vh", backgroundColor: "#32502E" }}
+        style={{ height: "9vh",fontFamily:"600",fontSize:"30px", backgroundColor: "#32502E" }}
         collapseOnSelect
         expand="lg"
         bg="#1a571a"
@@ -22,7 +26,7 @@ function NavbarItem() {
           <img
             src={logo}
             width="200px"
-            height="100px"
+            height="50px"
             marginleft="10px"
             className="d-inline-block align-top"
             alt="EMS"
@@ -47,11 +51,10 @@ function NavbarItem() {
                 Drinks
               </Link>
             </Nav.Link> */}
-            {localStorage.tokenPatient || localStorage.tokenDietitian || localStorage.tokenCompanion 
-              || localStorage.tokenEmployee ? (
+            { localStorage.tokenDietitian  ? (
               <Nav.Link>
                 <Link style={{ fontSize: "15px", color: "white", textDecoration: "none" }} to="/meals">
-                  Meals
+                 Patient Meals
                 </Link>
               </Nav.Link>
             ) : null}
@@ -71,16 +74,16 @@ function NavbarItem() {
                 Cart
               </Link>
               <Link style={{ fontSize: "15px", color: "white" }} className="nav-link" to="/profile">
-                Profile
+                Profile  <ImProfile style={{fontSize:"15px"}}/>
               </Link>
               <Link style={{ fontSize: "15px", color: "white" }} className="nav-link" to="/" onClick={logout}>
-                Logout
+                Logout  <GoSignOut style={{fontSize:"15px"}}/>
               </Link>
             </Nav>
           ) : ( 
             <Nav className="ms-auto">
               <Link style={{ fontSize: "15px", color: "white" }} className="nav-link" to="/all-login">
-              login
+              login <GoSignIn/>
               </Link>
               {/* <Link style={{ fontSize: "15px", color: "white" }} className="nav-link" to="/cart">
                 Cart

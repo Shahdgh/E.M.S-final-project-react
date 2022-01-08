@@ -1,19 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
-* {
+ * {
 	box-sizing: border-box;
-	margin: 0;
+	margin: 30px;
 	padding: 0;	
 	font-family: Raleway, sans-serif;
-}
+} 
 
 /* body {
 	background:white;	
 } */
 .h3{
 	color: rgb(35, 109, 20);
-	font-size: 10px;
+	font-size: 30px;
 	font-weight: 800;
 	margin-top: 1px;
 }

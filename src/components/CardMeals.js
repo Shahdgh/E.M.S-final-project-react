@@ -19,15 +19,15 @@ function CardMeals(props) {
       
 
         <Card.Body>
-          <Card.Title></Card.Title>
+       
           <Card.Text>
-            <p>
-              {client.firstName} {client.lastName}{" "}
+           <p>
+              {client.firstName} {client.lastName}
             </p>
           </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroupItem> {client.disease} </ListGroupItem>
+          {/* <ListGroupItem> {client.disease} </ListGroupItem> */}
           <ListGroupItem> {mealPatient.status} </ListGroupItem>
           <ListGroupItem>{mealPatient.comment ? <p>{mealPatient.comment}</p> : <p>--</p>}</ListGroupItem>
         </ListGroup>

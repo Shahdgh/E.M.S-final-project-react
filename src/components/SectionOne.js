@@ -1,25 +1,23 @@
-import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Container } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import video from "../assets/hg.mp4"
 import styles from "./SectionOne.module.css"
 function SectionOne() {
-    return ( <>
+  return (
+    <>
     
-        <div className="text-first"> 
-  <video className={styles.video} src={video} autoPlay muted loop></video>
- 
-  
-        <h2 >Enn  </h2>
-        <p> It is the image obtained from the process of photosynthesis, by the fall of light on a light-sensitive surface.</p>
-        {/* <div className={styles.button}>
-          <Link variant="light" className={styles.btn} to="/apicard">
-            View
-          </Link>
-          </div> */}
-        </div>
-      
-
-    </> );
+      <video className={styles.video} src={video} autoPlay muted loop></video>
+      <div className={styles.textfirst}>
+        <h2 >Enjoyable Meal Service </h2>
+        <p>
+          
+       Ouer Dear Employees,in Patients ,Visitors to the Hospitl , We are at Your Service
+        </p>
+        <button className={styles.bttnn}  ><Link to="/menu">Menu</Link> </button>
+       
+      </div>
+    </>
+  )
 }
 
-export default SectionOne;
+export default SectionOne

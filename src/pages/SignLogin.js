@@ -13,16 +13,16 @@ function SignLogin() {
               <form className="login" onSubmit={signCompanion}>
                 <h3 className="h3">Sign Up</h3>
                 <div className="login__fielld">
-                  <i className="login__icon fas fa-user"></i>
+                  <i className="login__icon "></i>
                   <input type="firstName" className="login__input" name="firstName" placeholder="First Name" />
                 </div>
                 <div className="login__field">
-                  <i className="login__icon fas fa-user"></i>
+                  <i className="login__icon "></i>
                   <input type="lastName" className="login__input" name="lastName" placeholder="Last Name" />
                 </div>
 
                 <div className="login__fielld">
-                  <i className="login__icon fas fa-user"></i>
+                  <i className="login__icon "></i>
                   <input type="url" className="login__input" name="avatar" placeholder="Avatar" />
                 </div>
                 <div className="login__fielld">
@@ -30,7 +30,7 @@ function SignLogin() {
                   <input type="text" className="login__input" name="fileNumber" placeholder="File Number Patient" />
                 </div>
                 <div className="login__fielld">
-                  <i className="login__icon fas fa-user"></i>
+                  <i className="login__icon fas fa-envelope"></i>
                   <input type="email" className="login__input" name="email" placeholder="Email" />
                 </div>
                 <div className="login__fielld">
@@ -53,14 +53,14 @@ function SignLogin() {
         </div>
       </Col>
 
-      <Col  sm={6}>
+      <Col  sm={6} >
         <div className="containerr">
           <div className="screenn">
             <div className="screen__content">
               <form className="login" onSubmit={loginCompanion}>
                 <h3 className="h3"> Login</h3>
                 <div className="login__fielld">
-                  <i className="login__icon fas fa-user"></i>
+                  <i className="login__icon fas fa-envelope"></i>
                   <input type="email" className="login__input" name="email" placeholder="Email" />
                 </div>
                 <div className="login__fielld">

@@ -5,7 +5,7 @@ import { Col, Row } from "react-bootstrap"
 function Meals() {
   // const { meals } = useContext(HospitalsContext)
   const { mealPatients } = useContext(HospitalsContext)
-
+console.log(mealPatients)
 
   return (
     <>

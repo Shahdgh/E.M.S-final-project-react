@@ -24,6 +24,7 @@ import AllDrinks from "./pages/MenuType"
 import { MdSend } from "react-icons/md"
 import Cart from "./pages/Cart"
 import SidebarCart from "./components/SidebarCart"
+import Footer from "./components/Footer"
 
 // imoprt navigate
 
@@ -32,10 +33,10 @@ function App() {
 
   const [ingredients, setIngredients] = useState([])
 
-  // const [meals, setMeals] = useState([])
+  const [meals, setMeals] = useState([])
   const [mealPatients, setMealPatients] = useState([])
 
-  // const [mealPatients, setMealPatients] = useState([])
+  
   const [profileEmployees, setProfileEmplyees] = useState({})
   const [profilePatients, setProfilePatients] = useState({})
   const [profileDietitians, setProfileDietitians] = useState({})
@@ -57,9 +58,10 @@ function App() {
     setTyps(response.data)
   }
 
-  // const getMeals = async (mealId) => {
-  //   const response = await axios.get(`http://localhost:5000/api/meals${mealId}`)
+  // const getMeals = async () => {
+  //   const response = await axios.get(`http://localhost:5000/api/meals`)
   //   setMeals(response.data)
+  //   console.log(response.data)
   // }
   //////////////////////////////////////////////////////////////////////
   const getMealPatients = async () => {
@@ -81,8 +83,9 @@ function App() {
     if (localStorage.tokenEmployee) {
       getProfileEmployees()
     }
+    if (localStorage.tokenCompanion) {
     getProfileCompanions()
-    // }
+    }
     if (localStorage.tokenPatient) {
       getProfilePatients()
     }
@@ -90,6 +93,7 @@ function App() {
       getProfileDiettitians()
       getMealPatients()
     }
+    // getMealPatients()
   }, [])
 
   //////Employee Login
@@ -298,7 +302,7 @@ function App() {
       await axios.post("http://localhost:5000/api/companions/signup", companionBody)
       toast.success("sign up success")
       navigate("/companion-login")
-      getProfileDiettitians()
+      getProfileCompanions()
     } catch (error) {
       console.log(error.response.data)
     }
@@ -472,7 +476,7 @@ function App() {
     ////
     ingredients,
     types,
-    // meals,
+    meals,
     ////
     profileEmployees,
     editEmployee,
@@ -491,7 +495,7 @@ function App() {
 
     addMealPatient,
     editMealPatient,
-    addMealEmployee,//////////////////////////////////////////////////////////////////////
+    addMealEmployee,
     addMealCompanion,
   }
 
@@ -529,6 +533,7 @@ function App() {
 
           {/* <Route path="/cart" element={ localStorage.tokenPatient ?<SidebarCart />:null} /> */}
         </Routes>
+    
       </HospitalsContext.Provider>
     </>
   )
