@@ -33,10 +33,9 @@ function App() {
 
   const [ingredients, setIngredients] = useState([])
 
-  const [meals, setMeals] = useState([])
+  // const [meals, setMeals] = useState([])
   const [mealPatients, setMealPatients] = useState([])
 
-  
   const [profileEmployees, setProfileEmplyees] = useState({})
   const [profilePatients, setProfilePatients] = useState({})
   const [profileDietitians, setProfileDietitians] = useState({})
@@ -73,18 +72,20 @@ function App() {
     setMealPatients(response.data)
     console.log(response.data)
   }
+
+  ///////////////////////////////////////////////////////////////////////////////////
+
   //////////////////////////////////////
   useEffect(() => {
     getIngredients()
     getTypes()
     // getMeals()
 
-    // mealPatient()
     if (localStorage.tokenEmployee) {
       getProfileEmployees()
     }
     if (localStorage.tokenCompanion) {
-    getProfileCompanions()
+      getProfileCompanions()
     }
     if (localStorage.tokenPatient) {
       getProfilePatients()
@@ -92,6 +93,8 @@ function App() {
     if (localStorage.tokenDietitian) {
       getProfileDiettitians()
       getMealPatients()
+
+      // getMeals()
     }
     // getMealPatients()
   }, [])
@@ -390,44 +393,44 @@ function App() {
       console.log(error.response.data)
     }
   }
- // Add Meals Employee ////
- const addMealEmployee = async mealIngredients => {
-  try {
-    const mealBody = {
-      ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
-    }
-    await axios.post(`http://localhost:5000/api/meals/employee`, mealBody, {
-      headers: {
-        Authorization: localStorage.tokenEmployee,
-      },
-    })
+  // Add Meals Employee ////
+  const addMealEmployee = async mealIngredients => {
+    try {
+      const mealBody = {
+        ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
+      }
+      await axios.post(`http://localhost:5000/api/meals/employee`, mealBody, {
+        headers: {
+          Authorization: localStorage.tokenEmployee,
+        },
+      })
 
-    toast.success("Your request has been accepted and it will be delivered to within an hour")
-    navigate("/menu")
-    getProfileEmployees()
-  } catch (error) {
-    console.log(error.response.data)
-  }
-}
- // Add Meals Companion////
- const addMealCompanion = async mealIngredients => {
-  try {
-    const mealBody = {
-      ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
+      toast.success("Your request has been accepted and it will be delivered to within an hour")
+      navigate("/menu")
+      getProfileEmployees()
+    } catch (error) {
+      console.log(error.response.data)
     }
-    await axios.post(`http://localhost:5000/api/meals/companion`, mealBody, {
-      headers: {
-        Authorization: localStorage.tokenCompanion,
-      },
-    })
-
-    toast.success("Your request has been accepted and it will be delivered to within an hour")
-    navigate("/menu")
-    getProfileCompanions()
-  } catch (error) {
-    console.log(error.response.data)
   }
-}
+  // Add Meals Companion////
+  const addMealCompanion = async mealIngredients => {
+    try {
+      const mealBody = {
+        ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
+      }
+      await axios.post(`http://localhost:5000/api/meals/companion`, mealBody, {
+        headers: {
+          Authorization: localStorage.tokenCompanion,
+        },
+      })
+
+      toast.success("Your request has been accepted and it will be delivered to within an hour")
+      navigate("/menu")
+      getProfileCompanions()
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  }
   // Edit Meals patient ////
   const editMealPatient = async (e, mealPatientId) => {
     e.preventDefault()
@@ -442,10 +445,8 @@ function App() {
           Authorization: localStorage.tokenDietitian,
         },
       })
-
-      console.log("lkjhgfd")
       toast.success("meals Edit")
-      navigate("/")
+      navigate("/meals")
       getMealPatients()
     } catch (error) {
       console.log(error.response.data)
@@ -453,7 +454,97 @@ function App() {
   }
 
   ///////////////
-  
+  /*******************Dietitian Delete Ingredient************************* */
+    //********************Ingredients***************************** */
+  ///add Ingredients
+  const addIngredient = async e => {
+    e.preventDefault()
+
+    try {
+      const form = e.target
+      const types = []
+      if (form.elements.types.forEach) {
+        form.elements.types.forEach(type => {
+          if (type.checked) {
+            types.push(type.value)
+          }
+        })
+      } else {
+        if (form.elements.types.checked) {
+          types.push(form.elements.types.value)
+        }
+      }
+
+      const ingredientBody = {
+        name: form.elements.name.value,
+        image: form.elements.image.value,
+        description: form.elements.description.value,
+        calories: form.elements.calories.value,
+        types: types,
+      }
+      await axios.post("http://localhost:5000/api/dietitians/ingredients", ingredientBody, {
+        headers: {
+          Authorization: localStorage.tokenDietitian,
+        },
+      })
+      getIngredients()
+      toast.success("add Ingredients success")
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+  /////edit Ingredient
+  const editIngredient = async (e, ingredientId) => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const types = []
+      if (form.elements.types.forEach) {
+        form.elements.types.forEach(type => {
+          if (type.checked) {
+            types.push(type.value)
+          }
+        })
+      } else {
+        if (form.elements.types.checked) {
+          types.push(form.elements.types.value)
+        }
+      }
+      const ingredientBody = {
+        name: form.elements.name.value,
+        image: form.elements.image.value,
+        description: form.elements.description.value,
+        calories: form.elements.calories.value,
+        types: types,
+      }
+      await axios.put(`http://localhost:5000/api/dietitians/ingredients/${ingredientId}`, ingredientBody, {
+        headers: {
+          Authorization: localStorage.tokenDietitian,
+        },
+      })
+      getIngredients()
+      toast.success("Edit Ingredients success")
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+  ////delete Ingredients
+  const deleteIngredient = async ingredientId => {
+    try {
+      await axios.delete(`http://localhost:5000/api/dietitians/ingredients/${ingredientId}`, {
+        headers: {
+          Authorization: localStorage.tokenDietitian,
+        },
+      })
+      toast.success("Ingredient deleted")
+      getIngredients()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
   /////////logout///////////
   const logout = () => {
     localStorage.removeItem("tokenPatient")
@@ -476,7 +567,7 @@ function App() {
     ////
     ingredients,
     types,
-    meals,
+    // meals,
     ////
     profileEmployees,
     editEmployee,
@@ -492,7 +583,11 @@ function App() {
     ///
 
     mealPatients,
-
+    ///////
+    addIngredient,
+    deleteIngredient,
+    editIngredient,
+    ////////////
     addMealPatient,
     editMealPatient,
     addMealEmployee,
@@ -533,7 +628,6 @@ function App() {
 
           {/* <Route path="/cart" element={ localStorage.tokenPatient ?<SidebarCart />:null} /> */}
         </Routes>
-    
       </HospitalsContext.Provider>
     </>
   )

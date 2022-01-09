@@ -9,36 +9,35 @@ function ProfilePatient() {
   const { profilePatients ,meals} = useContext(HospitalsContext)
   if (!profilePatients) return <h1>Loading...</h1>
 
-  // console.log(profilePatients)
-  //   const{patientId}=useParams()
-  //   let patient
-  //  if(patientId) patient = profilePatients.find(profilePatients =>profilePatients._id === patientId)
   return (
     <>
       <PatientInformation key={profilePatients._id} />
 
-      {/* {profilePatients.meals.map(meal=>(
-   
-      <h1>{meal._id }</h1>
+      {profilePatients.meals.map(meal=>(
+   meal.ingredients.map(ingredient =>(
+    <h1>{ingredient.name}</h1>
 
-      ))} */}
-      {profilePatients.meals.map(meal =>
-       
+   ))
+     
+      ))}
+  
+  {/* {profilePatients.meals.map(meal =>
+        meal.ingredients.map(ingredient => (
           <div className="card">
-            {/* <img
+            <img
               style={{ width: "50%", height: "30px", borderRadius: "4%" }}
-              src={ingredients.image}
+              src={ingredient.image}
               class="card-img-top"
               alt="..."
-            /> */}
+            />
 
             <div className="card-body">
-              <h5 className="card-title">Name:{meal._id}</h5>
-              {/* <h6 className="card-title">Calories:{meal.ingredients}</h6> */}
+              <h5 className="card-title">Name:{ingredient.name}</h5>
+              <h6 className="card-title">Calories:{ingredient.calories}</h6>
             </div>
           </div>
-        // ))
-      )}
+        ))
+      )} */}
     </>
 
   )

@@ -1,19 +1,45 @@
 import { useContext, useState } from "react"
 import HospitalsContext from "../utils/HospitalsContext"
 import { Col, Card, Row, Button, Image } from "react-bootstrap"
-import { CDBTable, CDBTableBody } from "cdbreact"
 
+import { MdAddBox } from "react-icons/md"
 import { GiShoppingCart } from "react-icons/gi"
 import MenuCard from "../components/MenuCard"
 import SidebarCart from "../components/SidebarCart"
+import IngredientAddModal from "../components/IngredientAddModal"
 function Menu() {
+ 
+  const [show, setShow] = useState(false)
   const [mealIngredients, setmealIngredients] = useState([])
   const { ingredients, addMealPatient, addMealEmployee, addMealCompanion } = useContext(HospitalsContext)
   // console.log(mealIngredients)
   return (
     <>
-      <Row>
-        <Col xs={5} sm={9}>
+      {localStorage.tokenDietitian ? (
+        <Button
+          variant=""
+          style={{
+            backgroundColor: "#32502E",
+            color: "white",
+            marginLeft: "10px",
+            marginTop: "10px",
+            marginLeft: "3px",
+            marginBottom: "7px",
+          }}
+          className="me-2"
+          onClick={() => setShow(true)}
+        >
+          Add Ingredients <MdAddBox />
+        </Button>
+        
+      ) : null}
+       <IngredientAddModal show={show} setShow={setShow} />
+
+
+{/* /*********************** */ }
+      {/* <Row> md={4} */}
+      <Col md={9}>
+        <Row md={3} xs={1} sm={9}>
           {ingredients.map(ingredient => (
             <MenuCard
               key={ingredient._id}
@@ -22,9 +48,10 @@ function Menu() {
               mealIngredients={mealIngredients}
             />
           ))}
-        </Col>
-
-        <Col sm={3}>
+        </Row>
+      </Col>
+      <Col md={3}>
+        <Row style={{ disply: "flex", justifyContent: "flex-end" }}>
           <h4>
             Cart <GiShoppingCart />
           </h4>
@@ -62,8 +89,8 @@ function Menu() {
               Send
             </Button>
           ) : null}
-        </Col>
-      </Row>
+        </Row>
+      </Col>
     </>
   )
 }

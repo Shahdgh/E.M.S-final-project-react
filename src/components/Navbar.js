@@ -66,7 +66,7 @@ function NavbarItem() {
               </Nav.Link>
             ) : null} */}
           </Nav>
-          {/* {localStorage.tokenFood ? */}
+       
           {localStorage.tokenPatient || localStorage.tokenDietitian || localStorage.tokenCompanion 
               || localStorage.tokenEmployee ? (
             <Nav className="ms-auto">

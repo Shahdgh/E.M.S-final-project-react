@@ -26,8 +26,8 @@ figure.snip0016 img {
   object-fit: contain;
   background-position: center;
   justify-content: center;
-  -webkit-transition: opacity 0.35s;
-  transition: opacity 0.35s;
+  /* -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s; */
 }
 figure.snip0016 figcaption {
   position: absolute;
@@ -89,7 +89,7 @@ figure.snip0016 a {
   color: #FFFFFF;
 }
 figure.snip0016:hover img {
-  opacity: 0.3;
+  opacity: 0.4;
 }
 figure.snip0016:hover figcaption h3 {
   opacity: 1;
