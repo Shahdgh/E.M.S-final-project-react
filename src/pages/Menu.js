@@ -8,7 +8,6 @@ import MenuCard from "../components/MenuCard"
 import SidebarCart from "../components/SidebarCart"
 import IngredientAddModal from "../components/IngredientAddModal"
 function Menu() {
- 
   const [show, setShow] = useState(false)
   const [mealIngredients, setmealIngredients] = useState([])
   const { ingredients, addMealPatient, addMealEmployee, addMealCompanion } = useContext(HospitalsContext)
@@ -31,15 +30,13 @@ function Menu() {
         >
           Add Ingredients <MdAddBox />
         </Button>
-        
       ) : null}
-       <IngredientAddModal show={show} setShow={setShow} />
+      <IngredientAddModal show={show} setShow={setShow} />
 
+      {/* /************************************************** */}
 
-{/* /*********************** */ }
-      {/* <Row> md={4} */}
-      <Col md={9}>
-        <Row md={3} xs={1} sm={9}>
+      <Row className="row-lg-3 ms-4 md-4">
+        <Col className="col-lg-9 ">
           {ingredients.map(ingredient => (
             <MenuCard
               key={ingredient._id}
@@ -48,12 +45,11 @@ function Menu() {
               mealIngredients={mealIngredients}
             />
           ))}
-        </Row>
-      </Col>
-      <Col md={3}>
-        <Row style={{ disply: "flex", justifyContent: "flex-end" }}>
-          <h4>
-            Cart <GiShoppingCart />
+        </Col>
+
+        <Col md={3}>
+          <h4  style={{fontWeight:"800" ,marginTop:"8px"}}>
+            Cart <GiShoppingCart  style={{fontWeight:"800",fontSize:"30px"}} />
           </h4>
           {mealIngredients.map(mealIngredient => (
             <SidebarCart key={mealIngredient._id} mealIngredient={mealIngredient} />
@@ -89,8 +85,8 @@ function Menu() {
               Send
             </Button>
           ) : null}
-        </Row>
-      </Col>
+        </Col>
+      </Row>
     </>
   )
 }

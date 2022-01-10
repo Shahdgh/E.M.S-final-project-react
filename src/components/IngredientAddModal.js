@@ -21,14 +21,14 @@ function IngredientAddModal(props) {
               <Form.Control name="name" type="text" />
             </Col>
           </Form.Group>
-          <Form.Group as={Row} className="mb-3">
+          <Form.Group as={Row} className="mb-3"> 
             <Form.Label column md="3">
               description
             </Form.Label>
             <Col md="8">
               <Form.Control name="description" type="text" />
             </Col>
-          </Form.Group>
+          </Form.Group> 
           <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
               Calories

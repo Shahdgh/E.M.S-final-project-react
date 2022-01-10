@@ -5,7 +5,6 @@ import { Button, Col, Form, Image, ListGroup, Modal, Row } from "react-bootstrap
 function PatientEditModal(props) {
   const { show, setShow } = props
   const { editPatient, profilePatients } = useContext(HospitalsContext)
- 
 
   return (
     <Modal show={show} onHide={() => setShow(false)}>
@@ -14,8 +13,8 @@ function PatientEditModal(props) {
           <Modal.Title style={{ color: "white" }}>Edit profile</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-       <Form.Group>
-        <Form.Label column md="3">
+          <Form.Group>
+            <Form.Label column md="3">
               First Name
             </Form.Label>
             <Col md="8">
@@ -67,7 +66,12 @@ function PatientEditModal(props) {
           <Button variant="secondary" onClick={() => setShow(false)}>
             Close
           </Button>
-          <Button variant="" style={{ backgroundColor: "#1a571a", color: "white" }}  type="submit" onClick={() => setShow(false)}>
+          <Button
+            variant=""
+            style={{ backgroundColor: "#1a571a", color: "white" }}
+            type="submit"
+            onClick={() => setShow(false)}
+          >
             Edit Profile
           </Button>
         </Modal.Footer>

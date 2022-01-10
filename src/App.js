@@ -25,6 +25,7 @@ import { MdSend } from "react-icons/md"
 import Cart from "./pages/Cart"
 import SidebarCart from "./components/SidebarCart"
 import Footer from "./components/Footer"
+import AllDrinkCold from "./pages/AllDrinkCold"
 
 // imoprt navigate
 
@@ -33,7 +34,7 @@ function App() {
 
   const [ingredients, setIngredients] = useState([])
 
-  // const [meals, setMeals] = useState([])
+  const [meals, setMeals] = useState([])
   const [mealPatients, setMealPatients] = useState([])
 
   const [profileEmployees, setProfileEmplyees] = useState({})
@@ -57,11 +58,11 @@ function App() {
     setTyps(response.data)
   }
 
-  // const getMeals = async () => {
-  //   const response = await axios.get(`http://localhost:5000/api/meals`)
-  //   setMeals(response.data)
-  //   console.log(response.data)
-  // }
+  const getMeals = async () => {
+    const response = await axios.get(`http://localhost:5000/api/meals`)
+    setMeals(response.data)
+    console.log(response.data)
+  }
   //////////////////////////////////////////////////////////////////////
   const getMealPatients = async () => {
     const response = await axios.get("http://localhost:5000/api/meals/patient", {
@@ -79,7 +80,7 @@ function App() {
   useEffect(() => {
     getIngredients()
     getTypes()
-    // getMeals()
+    getMeals()
 
     if (localStorage.tokenEmployee) {
       getProfileEmployees()
@@ -478,7 +479,7 @@ function App() {
       const ingredientBody = {
         name: form.elements.name.value,
         image: form.elements.image.value,
-        description: form.elements.description.value,
+        // description: form.elements.description.value,
         calories: form.elements.calories.value,
         types: types,
       }
@@ -514,7 +515,7 @@ function App() {
       const ingredientBody = {
         name: form.elements.name.value,
         image: form.elements.image.value,
-        description: form.elements.description.value,
+        // description: form.elements.description.value,
         calories: form.elements.calories.value,
         types: types,
       }
@@ -567,7 +568,7 @@ function App() {
     ////
     ingredients,
     types,
-    // meals,
+    meals,
     ////
     profileEmployees,
     editEmployee,
@@ -610,6 +611,8 @@ function App() {
           <Route path="/companion-login" element={<SignLogin />} />
           <Route path="/dietitian-login" element={<DietitianLogin />} />
           <Route path="/patient-login" element={<PatientLogin />} />
+         
+
 
           <Route
             path="/profile"

@@ -20,14 +20,14 @@ function IngredientEditModal(props) {
               <Form.Control name="name" type="text" defaultValue={ingredient.name} />
             </Col>
           </Form.Group>
-          <Form.Group as={Row} className="mb-3">
+          {/* <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
            description
             </Form.Label>
             <Col md="8">
               <Form.Control name="description" type="text" defaultValue={ingredient.description} />
             </Col>
-          </Form.Group>
+          </Form.Group> */}
           <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
             Calories
@@ -44,7 +44,7 @@ function IngredientEditModal(props) {
               {types.map(type => (
                 <Row style={{ height: 60, display: "flex", alignItems: "center" }}>
                   <Col md="2">
-                    <Form.Check type="checkbox" name="types" value={type._id} />
+                    <Form.Check type="checkbox" name="types" value={type._id} defaultValue={type.name} />
                   </Col>
                   <Col md="7">
                     <span style={{ marginLeft: "3px" }}>

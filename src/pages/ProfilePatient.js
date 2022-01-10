@@ -4,6 +4,7 @@ import CardMeals from "../components/CardMeals"
 import EmployeeInformation from "../components/EmployeeInformation"
 import PatientInformation from "../components/PatientInformation"
 import HospitalsContext from "../utils/HospitalsContext"
+import Meals from "./Meals"
 
 function ProfilePatient() {
   const { profilePatients ,meals} = useContext(HospitalsContext)
@@ -12,14 +13,12 @@ function ProfilePatient() {
   return (
     <>
       <PatientInformation key={profilePatients._id} />
+ 
+  
+   {profilePatients.meals.map(meal=>(
+    <Meals key={meal._id } meal={meal}/>
+  ))} 
 
-      {profilePatients.meals.map(meal=>(
-   meal.ingredients.map(ingredient =>(
-    <h1>{ingredient.name}</h1>
-
-   ))
-     
-      ))}
   
   {/* {profilePatients.meals.map(meal =>
         meal.ingredients.map(ingredient => (

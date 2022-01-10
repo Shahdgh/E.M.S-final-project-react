@@ -19,13 +19,14 @@ figure.snip0016 * {
   box-sizing: border-box;
 }
 figure.snip0016 img {
-  max-width: 100%;
-  opacity: 1;
   width: 100%;
-  /* height: 100vh; */
-  object-fit: contain;
+  opacity: 1;
+  /* width: 100%; */
+  background-size: cover;
+  height: 50vh;
+  object-fit: cover;
   background-position: center;
-  justify-content: center;
+  /* justify-content: center; */
   /* -webkit-transition: opacity 0.35s;
   transition: opacity 0.35s; */
 }
