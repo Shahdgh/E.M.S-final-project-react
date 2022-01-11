@@ -40,7 +40,7 @@ function NavbarItem() {
             </Nav.Link>
             <Nav.Link>
               <Link style={{ fontSize: "15px", color: "white", textDecoration: "none" }} to="/menu">
-                menu
+              Menu
               </Link>
             </Nav.Link>
 
@@ -51,6 +51,15 @@ function NavbarItem() {
                 </Link>
               </Nav.Link>
             ) : null}
+                {localStorage.tokenPatient ||
+          localStorage.tokenCompanion ||
+          localStorage.tokenEmployee ? (
+            <Nav.Link>
+            <Link style={{ fontSize: "15px", color: "white", textDecoration: "none" }} to="/my-meals">
+            My Meals
+            </Link>
+          </Nav.Link>
+              ) : null}
           </Nav>
 
           {localStorage.tokenPatient ||

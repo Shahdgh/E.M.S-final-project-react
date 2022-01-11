@@ -1,7 +1,8 @@
-
 import { useContext } from "react"
 import { Card, Col, Row } from "react-bootstrap"
-function MealPatient(props) {
+import HospitalsContext from "../utils/HospitalsContext"
+import { FcCheckmark } from "react-icons/fc"
+function MealEmployee(props) {
   const { meal } = props
 
   return (
@@ -9,18 +10,9 @@ function MealPatient(props) {
       <Col md={4}>
         <Card style={{ gap: "3", marginBottom: "10px" }}>
           <h5 style={{ fontSize: "20px", fontWeight: "800", textAlign: "center" }} className="card-title">
-            Satus:{meal.status} 
+            Satus:{meal.status} <FcCheckmark style={{ fontSize: "30px", fontWeigth: "800" }} />
           </h5>
-          <h5 style={{ fontSize: "20px", fontWeight: "800" }}>
-            Comment:{" "}
-            {meal.comment ? (
-              <h4 style={{ fontSize: "20px", fontWeight: "800", disply: "flex", justifyCcontent: "center" }}>
-                {meal.comment}
-              </h4>
-            ) : (
-              <h4>---</h4>
-            )}
-          </h5>
+          {/* <h5  style={{fontSize:"20px" , fontWeight:"800"}} >Comment: {meal.comment ? <h4  style={{fontSize:"20px" , fontWeight:"800", disply:"flex",  justifyCcontent: "center",}} >{meal.comment}</h4> : <h4>---</h4>}</h5> */}
 
           {meal.ingredients.map(ingredient => (
             <Row>
@@ -43,4 +35,4 @@ function MealPatient(props) {
   )
 }
 
-export default MealPatient
+export default MealEmployee

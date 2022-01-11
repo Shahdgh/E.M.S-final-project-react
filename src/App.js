@@ -25,7 +25,8 @@ import { MdSend } from "react-icons/md"
 import Cart from "./pages/Cart"
 import SidebarCart from "./components/SidebarCart"
 import Footer from "./components/Footer"
-import AllDrinkCold from "./pages/AllDrinkCold"
+import AllDrinkCold from "./pages/MyMeals"
+import MyMeals from "./pages/MyMeals"
 
 // imoprt navigate
 
@@ -116,6 +117,7 @@ function App() {
       })
       localStorage.tokenEmployee = response.data
       toast.success("login success")
+      getProfileEmployees()
       navigate("/")
     } catch (error) {
       if (error.response) toast.error(error.response.data)
@@ -178,6 +180,7 @@ function App() {
       })
       localStorage.tokenPatient = response.data
       toast.success("login success")
+      getProfilePatients()
       navigate("/")
     } catch (error) {
       if (error.response) toast.error(error.response.data)
@@ -242,6 +245,7 @@ function App() {
       })
       localStorage.tokenDietitian = response.data
       toast.success("login success")
+      getProfileDiettitians()
       navigate("/")
     } catch (error) {
       if (error.response) toast.error(error.response.data)
@@ -327,6 +331,7 @@ function App() {
       })
       localStorage.tokenCompanion = response.data
       toast.success("login success")
+      getProfileCompanions()
       navigate("/")
     } catch (error) {
       if (error.response) toast.error(error.response.data)
@@ -455,7 +460,7 @@ function App() {
   }
 
   ///////////////
-  /*******************Dietitian Delete Ingredient************************* */
+  /*******************Dietitian Task ************************* */
     //********************Ingredients***************************** */
   ///add Ingredients
   const addIngredient = async e => {
@@ -479,7 +484,7 @@ function App() {
       const ingredientBody = {
         name: form.elements.name.value,
         image: form.elements.image.value,
-        // description: form.elements.description.value,
+        description: form.elements.description.value,
         calories: form.elements.calories.value,
         types: types,
       }
@@ -515,7 +520,7 @@ function App() {
       const ingredientBody = {
         name: form.elements.name.value,
         image: form.elements.image.value,
-        // description: form.elements.description.value,
+        description: form.elements.description.value,
         calories: form.elements.calories.value,
         types: types,
       }
@@ -605,6 +610,7 @@ function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/meals" element={localStorage.tokenDietitian || localStorage.tokenPatient ? <Meals /> : null} />
           {/* <Route path="/all-drinks" element={<AllDrinks />} /> */}
+          <Route path="/my-meals" element={<MyMeals />} />
 
           <Route path="/all-login" element={<AllLogin />} />
           <Route path="/employee-login" element={<EmployeeLogin />} />

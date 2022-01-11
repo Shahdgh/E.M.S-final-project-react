@@ -18,31 +18,18 @@ function ProfileCompanion(props) {
 
       <>
         <h2>My Meals</h2>
-
       </>
-      <Card>
-        {profileCompanions.meals.map(meal => (
-          <div>
-            <p>Comment:{meal.comment}</p>
+      
 
-            <p> Status :{meal.status}</p>
-            {meal.ingredients.map(ingredient => (
-              <img src={ingredient.image} />
-            ))}
-          </div>
-        ))}
-      </Card>
-  
-
-  
-        {/* <Col
-          md={3}
-          style={{ backgroundColor: "green", textAlign: "center", marginLeft: "40%", width: "50vh", marginTop: "1px" }}
-        >
+      {/* <Col>
+        <Row md={4}>
+     
           {profileCompanions.meals.map(meal => (
             <MealCopmanion key={meal._id} meal={meal} />
           ))}
-        </Col> */}
+       
+        </Row>
+      </Col> */}
     </>
   )
 }

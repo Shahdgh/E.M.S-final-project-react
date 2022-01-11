@@ -10,8 +10,8 @@ import IngredientAddModal from "../components/IngredientAddModal"
 function Menu() {
   const [show, setShow] = useState(false)
   const [mealIngredients, setmealIngredients] = useState([])
-  const { ingredients, addMealPatient, addMealEmployee, addMealCompanion } = useContext(HospitalsContext)
-  // console.log(mealIngredients)
+  const {  addMealPatient, addMealEmployee, addMealCompanion } = useContext(HospitalsContext)
+
   return (
     <>
       {localStorage.tokenDietitian ? (
@@ -37,19 +37,14 @@ function Menu() {
 
       <Row className="row-lg-3 ms-4 md-4">
         <Col className="col-lg-9 ">
-          {ingredients.map(ingredient => (
-            <MenuCard
-              key={ingredient._id}
-              ingredient={ingredient}
-              setmealIngredients={setmealIngredients}
-              mealIngredients={mealIngredients}
-            />
-          ))}
+          <Row md={7}>
+            <MenuCard setmealIngredients={setmealIngredients} mealIngredients={mealIngredients} />
+          </Row>
         </Col>
 
         <Col md={3}>
-          <h4  style={{fontWeight:"800" ,marginTop:"8px"}}>
-            Cart <GiShoppingCart  style={{fontWeight:"800",fontSize:"30px"}} />
+          <h4 style={{ fontWeight: "800", marginTop: "8px" }}>
+            Cart <GiShoppingCart style={{ fontWeight: "800", fontSize: "30px" }} />
           </h4>
           {mealIngredients.map(mealIngredient => (
             <SidebarCart key={mealIngredient._id} mealIngredient={mealIngredient} />

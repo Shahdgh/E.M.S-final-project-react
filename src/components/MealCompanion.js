@@ -1,19 +1,30 @@
 import { useContext } from "react"
-import { Row } from "react-bootstrap"
+import { Card, Col, Row } from "react-bootstrap"
 import HospitalsContext from "../utils/HospitalsContext"
-
+import { FcCheckmark } from "react-icons/fc"
 function MealCopmanion(props) {
   const { meal } = props
-  const { ingredients, profileCompanions } = useContext(HospitalsContext)
+
   return (
     <>
-      <div className="card">
-        <h5 className="card-title">Name:{meal.status}</h5>
-        <h4>Comment : {meal.comment ? <h4>{meal.comment}</h4> : <h4>No</h4>}</h4>
-      </div>
-      {meal.ingredients.map(ingredient => (
-        <h3>{ingredient.name}</h3>
-      ))}
+    <Col md={4}>
+      <Card style={{gap:"3",marginBottom:"10px"}} >
+        <h5 style={{fontSize:"20px" , fontWeight:"800",textAlign:"center" }} className="card-title">
+          Satus:{meal.status} <FcCheckmark style={{ fontSize: "30px", fontWeigth: "800" }} />
+        </h5>
+        {/* <h5  style={{fontSize:"20px" , fontWeight:"800"}} >Comment: {meal.comment ? <h4  style={{fontSize:"20px" , fontWeight:"800", disply:"flex",  justifyCcontent: "center",}} >{meal.comment}</h4> : <h4>---</h4>}</h5> */}
+
+        {meal.ingredients.map(ingredient => (
+          <Row>
+            <h5 style={{fontWeight:"700",textAlign:"center"}}>Name: {ingredient.name}</h5>
+            <img
+              src={ingredient.image}
+              style={{ objectFit: "cover", height: "150px", width: "100%", alignItems: "center",textAlign:"center", }}
+            />
+          </Row>
+        ))}
+      </Card>
+      </Col>
     </>
   )
 }
