@@ -1,7 +1,7 @@
 import HospitalsContext from "../utils/HospitalsContext"
 import { useContext } from "react"
 import { Button, Col, Form, Image, ListGroup, Modal, Row } from "react-bootstrap"
-
+import { FcCheckmark } from "react-icons/fc";
 function MealPatientEditModal(props) {
   const { show, setShow, mealPatient } = props
   const { editMealPatient } = useContext(HospitalsContext)
@@ -19,7 +19,7 @@ function MealPatientEditModal(props) {
             </Form.Label>
             <Col md="8">
               <Form.Select height="20%" name="status" type="text" defaultValue={mealPatient.status}>
-                <option value="Accept">Accept</option>
+                <option value="Accept">Accept </option>
                 <option value="Pending">Pending</option>
                 <option value="Refused">Refused</option>
               </Form.Select>

@@ -2,10 +2,10 @@ import HospitalsContext from "../utils/HospitalsContext"
 import { useContext, useState } from "react"
 import CardMeals from "../components/CardMeals"
 import { Col, Row } from "react-bootstrap"
-function Meals() {
-  // const { meals } = useContext(HospitalsContext)
+
+function Meals(props) {
+  
   const { mealPatients } = useContext(HospitalsContext)
-console.log(mealPatients)
 
   return (
     <>
@@ -15,6 +15,10 @@ console.log(mealPatients)
           <CardMeals key={mealPatient._id} mealPatient={mealPatient} />
         ))}
       </Row>
+      
+    
+          {/* <CardMeals key={mealPatient._id} mealPatient={mealPatient}  /> */}
+  
     </>
   )
 }

@@ -8,6 +8,7 @@ function MyMeals() {
   const { profileCompanions,profileEmployees ,profilePatients} = useContext(HospitalsContext)
   return (
     <>
+       <h4 style={{textAlign:"center",fontWeight:"800", marginTop:"30px",}}>My Meals</h4>
       {localStorage.tokenCompanion ? (
         <Col>
           <Row md={4}>

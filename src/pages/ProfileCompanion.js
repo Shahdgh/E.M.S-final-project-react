@@ -16,20 +16,10 @@ function ProfileCompanion(props) {
     <>
       <CompanionInformation key={profileCompanions._id} />
 
-      <>
-        <h2>My Meals</h2>
-      </>
+     
       
 
-      {/* <Col>
-        <Row md={4}>
-     
-          {profileCompanions.meals.map(meal => (
-            <MealCopmanion key={meal._id} meal={meal} />
-          ))}
-       
-        </Row>
-      </Col> */}
+    
     </>
   )
 }

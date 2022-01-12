@@ -56,7 +56,7 @@ function Menu() {
               style={{ fontSize: "15px", fontWeight: "800", backgroundColor: "#1a571a", color: "white" }}
               className="me-2"
               onClick={() =>
-                addMealPatient(mealIngredients) || addMealEmployee(mealIngredients) || addMealCompanion(mealIngredients)
+                addMealPatient(mealIngredients)
               }
             >
               Send

@@ -347,7 +347,7 @@ function App() {
         },
       })
       setProfileCompanions(response.data)
-      // console.log(response.data)
+   
     } catch (error) {
       console.log(error.response.data)
     }
@@ -361,7 +361,7 @@ function App() {
         firstName: form.elements.firstName.value,
         lastName: form.elements.lastName.value,
         avatar: form.elements.avatar.value,
-        // phone: form.elements.phone.value,
+     
         email: form.elements.email.value,
         password: form.elements.password.value,
         fileNumber: form.elements.fileNumber.value,
@@ -393,7 +393,7 @@ function App() {
       })
 
       toast.success("The Request has been sent , waiting for the Dietitian To accept")
-      navigate("/menu")
+      navigate("/my-meals")
       getProfilePatients()
     } catch (error) {
       console.log(error.response.data)
@@ -412,7 +412,7 @@ function App() {
       })
 
       toast.success("Your request has been accepted and it will be delivered to within an hour")
-      navigate("/menu")
+      navigate("/my-meals")
       getProfileEmployees()
     } catch (error) {
       console.log(error.response.data)
@@ -431,7 +431,7 @@ function App() {
       })
 
       toast.success("Your request has been accepted and it will be delivered to within an hour")
-      navigate("/menu")
+      navigate("/my-meals")
       getProfileCompanions()
     } catch (error) {
       console.log(error.response.data)
@@ -459,7 +459,6 @@ function App() {
     }
   }
 
-  ///////////////
   /*******************Dietitian Task ************************* */
     //********************Ingredients***************************** */
   ///add Ingredients
@@ -566,7 +565,7 @@ function App() {
     employeLogin,
     dietitianLogin,
     patientLogin,
-    signCompanion, ///ماشتغل
+    signCompanion, 
     loginCompanion,
     logout,
 

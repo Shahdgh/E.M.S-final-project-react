@@ -1,32 +1,28 @@
-import { useContext } from "react";
-import CardMeals from "../components/CardMeals";
-import MenuCard from "../components/MenuCard";
-import Types from "../components/Types";
-import HospitalsContext from "../utils/HospitalsContext";
-import Meals from "./Meals";
+// import { useContext } from "react";
+// import CardMeals from "../components/CardMeals";
+// import MenuCard from "../components/MenuCard";
+// import Types from "../components/Types";
+// import HospitalsContext from "../utils/HospitalsContext";
+// import Meals from "./Meals";
 
-function MenuType() {
-    const {ingredients}=useContext(HospitalsContext)
+// function MenuType() {
+//     const {ingredients}=useContext(HospitalsContext)
     
-    // const {typeIngredient}=useParams()
-    // const menuType =ingredients.filter(ingredient=> ingredient.type== typeIngredient)
+//     // const {typeIngredient}=useParams()
+//     // const menuType =ingredients.filter(ingredient=> ingredient.type== typeIngredient)
     
-    return ( <>
+//     return ( <>
 
-     {ingredients.map(type =>
-        type.name == "Drinks" ? <CardMeals  key={type._id} type= {type} />   : null
+//      {ingredients.map(type =>
+//         type.name == "Drinks" ? <CardMeals  key={type._id} type= {type} />   : null
         
-      )}   
+//       )}   
 
-      {/* {ingredients.map(menuType=> (
-        <MenuCard menuType={menuType}/>
-      ))} */}
+//     </>
+//      );
+// }
 
-    </>
-     );
-}
-
-export default MenuType;
+// export default MenuType;
 
 
 

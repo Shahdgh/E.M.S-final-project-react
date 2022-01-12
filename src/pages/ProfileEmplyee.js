@@ -13,16 +13,7 @@ function ProfileEmployee() {
     <>
       
       <EmployeeInformation key={profileEmployees._id} />
-    
-      <Col>
-        <Row md={4}>
-        
-          {profileEmployees.meals.map(meal => (
-            <MealEmployee key={meal._id} meal={meal} />
-          ))}
-       
-        </Row>
-      </Col>
+  
     </>
   )
 }
