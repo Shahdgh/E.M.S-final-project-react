@@ -23,9 +23,10 @@ function NavbarItem() {
         <Navbar.Brand>
           <img
             src={logo}
-            width="200px"
-            height="50px"
+            width="210px"
+            height="70px"
             marginleft="10px"
+            marginTop="3px"
             className="d-inline-block align-top"
             alt="EMS"
           />

@@ -62,7 +62,7 @@ function App() {
   const getMeals = async () => {
     const response = await axios.get(`http://localhost:5000/api/meals`)
     setMeals(response.data)
-    console.log(response.data)
+    // console.log(response.data)
   }
   //////////////////////////////////////////////////////////////////////
   const getMealPatients = async () => {
@@ -72,7 +72,7 @@ function App() {
       },
     })
     setMealPatients(response.data)
-    console.log(response.data)
+ 
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -96,9 +96,9 @@ function App() {
       getProfileDiettitians()
       getMealPatients()
 
-      // getMeals()
+    
     }
-    // getMealPatients()
+  
   }, [])
 
   //////Employee Login

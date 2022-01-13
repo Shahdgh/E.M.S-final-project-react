@@ -10,7 +10,7 @@ function MealPatient(props) {
 
 		
       <Col md={4}>
-        <Card style={{ gap: "3", marginBottom: "10px" }}>
+        <Card style={{ gap: "3", marginBottom: "10px",}}>
           <h5 style={{ fontSize: "20px", fontWeight: "800", textAlign: "center" }} className="card-title">
             Satus:{meal.status} 
           </h5>

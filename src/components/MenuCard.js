@@ -1,20 +1,13 @@
 import { useContext, useState } from "react"
 import { Button, Card, Col, Row } from "react-bootstrap"
 import { MdStackedLineChart, MdDelete, MdEditNote } from "react-icons/md"
- 
+
 import HospitalsContext from "../utils/HospitalsContext"
 import CardMenuOne from "./CardMenuOne"
 
-import IngredientDeleteModal from "./IngredientDeleteModal"
-import IngredientEditModal from "./IngredientEditModal"
-
-function MenuCard() {
-  // const { ingredient, setmealIngredients, mealIngredients } = props
-  const { types, ingredients } = useContext(HospitalsContext) 
-
-  // const [editShow, setEditShow] = useState(false)
-
-  // const [deleteShow, setDeleteShow] = useState(false)
+function MenuCard(props) {
+  const { setmealIngredients, mealIngredients } = props
+  const { types, ingredients } = useContext(HospitalsContext)
 
   return (
     <>
@@ -23,21 +16,20 @@ function MenuCard() {
         if (ingredientsType.length == 0) return null
         return (
           <>
-            <h4 style={{fontSize:"25px", fontWeight: "800",paddingTop:"7px" }}>{type.name}</h4>
+            <h4 style={{ fontSize: "25px", fontWeight: "800", paddingTop: "7px" }}>{type.name}</h4>
 
             {ingredientsType.map(ingredient => (
-             <CardMenuOne ingredient={ingredient}/>
+              <CardMenuOne 
+                ingredient={ingredient}
+                mealIngredients={mealIngredients}
+                setmealIngredients={setmealIngredients}
+              />
             ))}
-          
           </>
         )
-
       })}
     </>
-    
   )
 }
 
 export default MenuCard
-
-

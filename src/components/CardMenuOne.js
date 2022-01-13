@@ -4,9 +4,8 @@ import { MdStackedLineChart, MdDelete, MdEditNote } from "react-icons/md"
 import { Button, Card, Col } from "react-bootstrap"
 import { useState } from "react"
 function CardMenu(props) {
-    const { ingredient}= props
+    const { ingredient ,setmealIngredients,mealIngredients}= props
   const [editShow, setEditShow] = useState(false)
-  const [mealIngredients, setmealIngredients] = useState([])
   const [deleteShow, setDeleteShow] = useState(false)
   return (
     <Col ms={3} style={{ height: "50vh", width: "18rem", margin: "20px" }}>
@@ -56,8 +55,8 @@ function CardMenu(props) {
           ) : null}
         </Card.Body>
       </Card>
-      {/* <IngredientEditModal show={editShow} setShow={setEditShow} ingredient={ingredient} /> */}
-      {/* <IngredientDeleteModal show={deleteShow} setShow={setDeleteShow} ingredientId={ingredient._id} /> */}
+      <IngredientEditModal show={editShow} setShow={setEditShow} ingredient={ingredient} /> 
+       <IngredientDeleteModal show={deleteShow} setShow={setDeleteShow} ingredientId={ingredient._id} />
     </Col>
   )
 }
