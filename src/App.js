@@ -20,7 +20,7 @@ import ProfileEmployee from "./pages/ProfileEmplyee"
 import ProfilePatient from "./pages/ProfilePatient"
 import ProfileDietitian from "./pages/ProfileDietitian"
 import ProfileCompanion from "./pages/ProfileCompanion"
- 
+
 import MyMeals from "./pages/MyMeals"
 
 // imoprt navigate
@@ -39,35 +39,34 @@ function App() {
   const [profileCompanions, setProfileCompanions] = useState({})
 
   const navigate = useNavigate()
-
+  
   ///Get Ingredients
   const getIngredients = async () => {
-    const response = await axios.get("http://localhost:5000/api/admin/ingredients")
+    const response = await axios.get("https://ems-in-hospital.herokuapp.com/api/admin/ingredients")
 
     setIngredients(response.data)
   }
 
   /////Types
   const getTypes = async () => {
-    const response = await axios.get("http://localhost:5000/api/types")
+    const response = await axios.get("https://ems-in-hospital.herokuapp.com/api/types")
 
     setTyps(response.data)
   }
 
   const getMeals = async () => {
-    const response = await axios.get(`http://localhost:5000/api/meals`)
+    const response = await axios.get(`https://ems-in-hospital.herokuapp.com/api/meals`)
     setMeals(response.data)
     // console.log(response.data)
   }
   //////////////////////////////////////////////////////////////////////
   const getMealPatients = async () => {
-    const response = await axios.get("http://localhost:5000/api/meals/patient", {
+    const response = await axios.get("https://ems-in-hospital.herokuapp.com/api/meals/patient", {
       headers: {
         Authorization: localStorage.tokenDietitian,
       },
     })
     setMealPatients(response.data)
- 
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -90,10 +89,7 @@ function App() {
     if (localStorage.tokenDietitian) {
       getProfileDiettitians()
       getMealPatients()
-
-    
     }
-  
   }, [])
 
   //////Employee Login
@@ -105,7 +101,7 @@ function App() {
         employeeId: form.elements.employeeId.value,
         password: form.elements.password.value,
       }
-      const response = await axios.post(`http://localhost:5000/api/employees/login`, employeeBody, {
+      const response = await axios.post(`https://ems-in-hospital.herokuapp.com/api/employees/login`, employeeBody, {
         headers: {
           Authorization: localStorage.tokenEmployee,
         },
@@ -123,7 +119,7 @@ function App() {
 
   const getProfileEmployees = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/employees/profile`, {
+      const response = await axios.get(`https://ems-in-hospital.herokuapp.com/api/employees/profile`, {
         headers: {
           Authorization: localStorage.tokenEmployee,
         },
@@ -147,7 +143,7 @@ function App() {
         password: form.elements.password.value,
         avatar: form.elements.avatar.value,
       }
-      await axios.put(`http://localhost:5000/api/employees/profile/${employeeId}`, employeeBody, {
+      await axios.put(`https://ems-in-hospital.herokuapp.com/api/employees/profile/${employeeId}`, employeeBody, {
         headers: {
           Authorization: localStorage.tokenEmployee,
         },
@@ -168,7 +164,7 @@ function App() {
         fileNumber: form.elements.fileNumber.value,
         password: form.elements.password.value,
       }
-      const response = await axios.post(`http://localhost:5000/api/patients/login`, patientBody, {
+      const response = await axios.post(`https://ems-in-hospital.herokuapp.com/api/patients/login`, patientBody, {
         headers: {
           Authorization: localStorage.tokenPatient,
         },
@@ -186,7 +182,7 @@ function App() {
   ///profile Patient
   const getProfilePatients = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/patients/profile`, {
+      const response = await axios.get(`https://ems-in-hospital.herokuapp.com/api/patients/profile`, {
         headers: {
           Authorization: localStorage.tokenPatient,
         },
@@ -211,7 +207,7 @@ function App() {
         password: form.elements.password.value,
         avatar: form.elements.avatar.value,
       }
-      await axios.put(`http://localhost:5000/api/patients/profile/${patientId}`, patientBody, {
+      await axios.put(`https://ems-in-hospital.herokuapp.com/api/patients/profile/${patientId}`, patientBody, {
         headers: {
           Authorization: localStorage.tokenPatient,
         },
@@ -233,7 +229,7 @@ function App() {
         employeeId: form.elements.employeeId.value,
         password: form.elements.password.value,
       }
-      const response = await axios.post(`http://localhost:5000/api/dietitians/login`, dietitianBody, {
+      const response = await axios.post(`https://ems-in-hospital.herokuapp.com/api/dietitians/login`, dietitianBody, {
         headers: {
           Authorization: localStorage.tokenDietitian,
         },
@@ -250,7 +246,7 @@ function App() {
   ////////get profile Dietitian
   const getProfileDiettitians = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/dietitians/profile`, {
+      const response = await axios.get(`https://ems-in-hospital.herokuapp.com/api/dietitians/profile`, {
         headers: {
           Authorization: localStorage.tokenDietitian,
         },
@@ -276,7 +272,7 @@ function App() {
         email: form.elements.email.value,
         password: form.elements.password.value,
       }
-      await axios.put(`http://localhost:5000/api/dietitians/profile/${dietitianId}`, dietitianBody, {
+      await axios.put(`https://ems-in-hospital.herokuapp.com/api/dietitians/profile/${dietitianId}`, dietitianBody, {
         headers: {
           Authorization: localStorage.tokenDietitian,
         },
@@ -302,7 +298,7 @@ function App() {
         avatar: form.elements.avatar.value,
         fileNumber: form.elements.fileNumber.value,
       }
-      await axios.post("http://localhost:5000/api/companions/signup", companionBody)
+      await axios.post("https://ems-in-hospital.herokuapp.com/api/companions/signup", companionBody)
       toast.success("sign up success")
       navigate("/companion-login")
       getProfileCompanions()
@@ -319,7 +315,7 @@ function App() {
         email: form.elements.email.value,
         password: form.elements.password.value,
       }
-      const response = await axios.post(`http://localhost:5000/api/companions/login`, companionBody, {
+      const response = await axios.post(`https://ems-in-hospital.herokuapp.com/api/companions/login`, companionBody, {
         headers: {
           Authorization: localStorage.tokenCompanion,
         },
@@ -336,13 +332,12 @@ function App() {
   ///Profile get Companion
   const getProfileCompanions = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/companions/profile`, {
+      const response = await axios.get(`https://ems-in-hospital.herokuapp.com/api/companions/profile`, {
         headers: {
           Authorization: localStorage.tokenCompanion,
         },
       })
       setProfileCompanions(response.data)
-   
     } catch (error) {
       console.log(error.response.data)
     }
@@ -356,12 +351,12 @@ function App() {
         firstName: form.elements.firstName.value,
         lastName: form.elements.lastName.value,
         avatar: form.elements.avatar.value,
-     
+
         email: form.elements.email.value,
         password: form.elements.password.value,
         fileNumber: form.elements.fileNumber.value,
       }
-      await axios.put(`http://localhost:5000/api/companions/profile/${companionId}`, companionBody, {
+      await axios.put(`https://ems-in-hospital.herokuapp.com/api/companions/profile/${companionId}`, companionBody, {
         headers: {
           Authorization: localStorage.tokenCompanion,
         },
@@ -381,7 +376,7 @@ function App() {
       const mealBody = {
         ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
       }
-      await axios.post(`http://localhost:5000/api/meals/patient`, mealBody, {
+      await axios.post(`https://ems-in-hospital.herokuapp.com/api/meals/patient`, mealBody, {
         headers: {
           Authorization: localStorage.tokenPatient,
         },
@@ -400,7 +395,7 @@ function App() {
       const mealBody = {
         ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
       }
-      await axios.post(`http://localhost:5000/api/meals/employee`, mealBody, {
+      await axios.post(`https://ems-in-hospital.herokuapp.com/api/meals/employee`, mealBody, {
         headers: {
           Authorization: localStorage.tokenEmployee,
         },
@@ -419,7 +414,7 @@ function App() {
       const mealBody = {
         ingredients: mealIngredients.map(mealIngredient => mealIngredient._id),
       }
-      await axios.post(`http://localhost:5000/api/meals/companion`, mealBody, {
+      await axios.post(`https://ems-in-hospital.herokuapp.com/api/meals/companion`, mealBody, {
         headers: {
           Authorization: localStorage.tokenCompanion,
         },
@@ -441,7 +436,7 @@ function App() {
         comment: form.elements.comment.value,
         status: form.elements.status.value,
       }
-      await axios.put(`http://localhost:5000/api/meals/patient/${mealPatientId}`, mealBody, {
+      await axios.put(`https://ems-in-hospital.herokuapp.com/api/meals/patient/${mealPatientId}`, mealBody, {
         headers: {
           Authorization: localStorage.tokenDietitian,
         },
@@ -455,7 +450,7 @@ function App() {
   }
 
   /*******************Dietitian Task ************************* */
-    //********************Ingredients***************************** */
+  //********************Ingredients***************************** */
   ///add Ingredients
   const addIngredient = async e => {
     e.preventDefault()
@@ -482,7 +477,7 @@ function App() {
         calories: form.elements.calories.value,
         types: types,
       }
-      await axios.post("http://localhost:5000/api/dietitians/ingredients", ingredientBody, {
+      await axios.post("https://ems-in-hospital.herokuapp.com/api/dietitians/ingredients", ingredientBody, {
         headers: {
           Authorization: localStorage.tokenDietitian,
         },
@@ -518,11 +513,15 @@ function App() {
         calories: form.elements.calories.value,
         types: types,
       }
-      await axios.put(`http://localhost:5000/api/dietitians/ingredients/${ingredientId}`, ingredientBody, {
-        headers: {
-          Authorization: localStorage.tokenDietitian,
-        },
-      })
+      await axios.put(
+        `https://ems-in-hospital.herokuapp.com/api/dietitians/ingredients/${ingredientId}`,
+        ingredientBody,
+        {
+          headers: {
+            Authorization: localStorage.tokenDietitian,
+          },
+        }
+      )
       getIngredients()
       toast.success("Edit Ingredients success")
     } catch (error) {
@@ -533,7 +532,7 @@ function App() {
   ////delete Ingredients
   const deleteIngredient = async ingredientId => {
     try {
-      await axios.delete(`http://localhost:5000/api/dietitians/ingredients/${ingredientId}`, {
+      await axios.delete(`https://ems-in-hospital.herokuapp.com/api/dietitians/ingredients/${ingredientId}`, {
         headers: {
           Authorization: localStorage.tokenDietitian,
         },
@@ -560,7 +559,7 @@ function App() {
     employeLogin,
     dietitianLogin,
     patientLogin,
-    signCompanion, 
+    signCompanion,
     loginCompanion,
     logout,
 
@@ -611,8 +610,6 @@ function App() {
           <Route path="/companion-login" element={<SignLogin />} />
           <Route path="/dietitian-login" element={<DietitianLogin />} />
           <Route path="/patient-login" element={<PatientLogin />} />
-         
-
 
           <Route
             path="/profile"
