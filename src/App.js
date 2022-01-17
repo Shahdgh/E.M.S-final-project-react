@@ -449,7 +449,7 @@ function App() {
     }
   }
 
-  /*******************Dietitian Task ************************* */
+  /*******************Dietitian Task *************************** */
   //********************Ingredients***************************** */
   ///add Ingredients
   const addIngredient = async e => {
