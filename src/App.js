@@ -39,7 +39,7 @@ function App() {
   const [profileCompanions, setProfileCompanions] = useState({})
 
   const navigate = useNavigate()
-  
+
   ///Get Ingredients
   const getIngredients = async () => {
     const response = await axios.get("https://ems-in-hospital.herokuapp.com/api/admin/ingredients")
@@ -602,7 +602,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/meals" element={localStorage.tokenDietitian || localStorage.tokenPatient ? <Meals /> : null} />
-          {/* <Route path="/all-drinks" element={<AllDrinks />} /> */}
+
           <Route path="/my-meals" element={<MyMeals />} />
 
           <Route path="/all-login" element={<AllLogin />} />
