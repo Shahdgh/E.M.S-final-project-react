@@ -17,7 +17,7 @@ function MenuCard(props) {
         return (
           <>
             <h4 style={{ fontSize: "25px", fontWeight: "800", paddingTop: "7px" }}>{type.name}</h4>
-
+            
             {ingredientsType.map(ingredient => (
               <CardMenuOne 
                 ingredient={ingredient}

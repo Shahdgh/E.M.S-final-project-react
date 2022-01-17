@@ -36,7 +36,7 @@ function CardMenu(props) {
           {localStorage.tokenDietitian ? (
             <Button
               variant=""
-              style={{ backgroundColor: "#081EA9", color: "white" }}
+              style={{ backgroundColor: "#081EA9",padding:"3px 8px", color: "white", marginLeft: "1px" }}
               className="me-2"
               onClick={() => setEditShow(true)}
             >
@@ -46,7 +46,7 @@ function CardMenu(props) {
           {localStorage.tokenDietitian ? (
             <Button
               variant=""
-              style={{ backgroundColor: "#720c0c", color: "white", marginLeft: "10px" }}
+              style={{ backgroundColor: "#720c0c", padding:"3px 8px",color: "white", marginLeft: "1px" }}
               className="me-2"
               onClick={() => setDeleteShow(true)}
             >

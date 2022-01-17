@@ -35,9 +35,9 @@ function Menu() {
 
       {/* /************************************************** */}
 
-      <Row className="row-lg-3 ms-4 md-4">
+      <Row className="row-lg-3 md-4">
         <Col className="col-lg-9 ">
-          <Row md={7}>
+          <Row md={7} ms={2}>
             <MenuCard setmealIngredients={setmealIngredients} mealIngredients={mealIngredients} />
           </Row>
         </Col>

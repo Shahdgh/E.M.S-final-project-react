@@ -15,22 +15,23 @@
     z-index: 50;
     font-size: 30px;
     margin-left:40px ;  
-
+    margin-left:120px ;
     color: rgb(255, 255, 255);
 }
 h2{
     font-family: 800;
     text-align: center;
     align-items: center;
-    font-size: 45px;
+    font-size: 60px;
     padding-top: 20%;
-        margin-left:40px ;  
+        margin-left:70px ;  
 }
 p{
-font-size: 30px;
+font-size: 25px;
+align-items: center;
 font-family: 400;
 text-align: center;
-   margin-left:35px ;
+   margin-left:120px ;
 }
 
 
@@ -38,7 +39,7 @@ text-align: center;
  .bttnn{
  margin-left: 40%;
     color: #ffffff;
-    padding: 8px 80px;
+    padding: 8px 60px;
     border-radius:2px ;
 align-items: center;
     border: none;
@@ -81,7 +82,7 @@ align-items: center;
         text-decoration: none;
     } 
     .textfirst  {
-
+     margin-left: 2px;
         font-size: 35px;
         font-family: 800;
        margin-bottom: 10rem;

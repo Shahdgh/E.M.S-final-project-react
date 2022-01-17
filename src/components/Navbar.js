@@ -1,6 +1,6 @@
 
 import logo from "../assets/log.png"
-
+import "./Navbar.css"
 import {  Nav, Navbar,} from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
@@ -15,12 +15,16 @@ function NavbarItem() {
     <>
       <Navbar
         style={{ height: "9vh", fontWeight: "600", fontSize: "35px", backgroundColor: "#32502E" }}
+        // rgb(33, 49, 22)
         collapseOnSelect
         expand="lg"
         bg="#1a571a"
         variant="dark"
+    
+     
       >
         <Navbar.Brand>
+          <Link to="/">
           <img
             src={logo}
             width="210px"
@@ -29,10 +33,10 @@ function NavbarItem() {
             marginTop="3px"
             className="d-inline-block align-top"
             alt="EMS"
-          />
+          /></Link>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav " />
+        <Navbar.Collapse id="responsive-navbar-nav" >
           <Nav className="me-auto">
             <Nav.Link>
               <Link to="/" style={{ fontSize: "15px", color: "white", textDecoration: "none" }}>

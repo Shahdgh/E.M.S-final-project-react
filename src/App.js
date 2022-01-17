@@ -20,12 +20,7 @@ import ProfileEmployee from "./pages/ProfileEmplyee"
 import ProfilePatient from "./pages/ProfilePatient"
 import ProfileDietitian from "./pages/ProfileDietitian"
 import ProfileCompanion from "./pages/ProfileCompanion"
-import AllDrinks from "./pages/MenuType"
-import { MdSend } from "react-icons/md"
-import Cart from "./pages/Cart"
-import SidebarCart from "./components/SidebarCart"
-import Footer from "./components/Footer"
-import AllDrinkCold from "./pages/MyMeals"
+
 import MyMeals from "./pages/MyMeals"
 
 // imoprt navigate

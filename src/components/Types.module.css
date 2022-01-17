@@ -21,14 +21,13 @@ figure.snip0016 * {
 figure.snip0016 img {
   width: 100%;
   opacity: 1;
-  /* width: 100%; */
-  background-size: cover;
-  height: 50vh;
+
+  background-size:unset;
+  height: 40vh;
   object-fit: cover;
   background-position: center;
-  /* justify-content: center; */
-  /* -webkit-transition: opacity 0.35s;
-  transition: opacity 0.35s; */
+  justify-content: center;
+  transition: opacity 0.35s;
 }
 figure.snip0016 figcaption {
   position: absolute;
@@ -113,16 +112,17 @@ figure.snip0016:hover figcaption::before {
   -webkit-transition-delay: 0s;
   transition-delay: 0s;
 }
-@media screen and(max-width: 768px) {
+@media (max-width: 768px) {
   figure.snip0016 {
     
     width: 100%;
-   
+   margin:5px
   }
   figure.snip0016 img {
    
   
-    height: 32vh;
+    height: 150px;
+   
    
   }
 }
