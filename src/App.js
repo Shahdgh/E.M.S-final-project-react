@@ -531,7 +531,6 @@ function App() {
   }
   ////delete Ingredients
   const deleteIngredient = async ingredientId => {
-   
     try {
       await axios.delete(`https://ems-in-hospital.herokuapp.com/api/dietitians/ingredients/${ingredientId}`, {
         headers: {
@@ -629,7 +628,6 @@ function App() {
 
           {/* <Route path="/cart" element={ localStorage.tokenPatient ?<SidebarCart />:null} /> */}
         </Routes>
-
       </HospitalsContext.Provider>
     </>
   )
