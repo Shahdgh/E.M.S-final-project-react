@@ -20,18 +20,19 @@ function NavbarItem() {
         expand="lg"
         bg="#1a571a"
         variant="dark"
-    
+    className="vanbaaar"
      
       >
         <Navbar.Brand>
           <Link to="/">
           <img
+          // className="Brand"
             src={logo}
             width="210px"
             height="70px"
             marginleft="10px"
             marginTop="3px"
-            className="d-inline-block align-top"
+            className="Brand d-inline-block align-top"
             alt="EMS"
           /></Link>
         </Navbar.Brand>

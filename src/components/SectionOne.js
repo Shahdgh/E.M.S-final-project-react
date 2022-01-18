@@ -6,8 +6,8 @@ function SectionOne() {
   return (
     <>
     
-      <video className={styles.video} src={video} autoPlay muted loop></video>
-      <div className={styles.textfirst}>
+      <video className={styles.video} src={video} autoPlay muted controls={false} loop></video>
+      <div  className={styles.textfirst}>
         <h2 >Enjoyable Meal Service </h2>
         <p>
           

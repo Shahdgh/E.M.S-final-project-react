@@ -64,9 +64,11 @@ align-items: center;
     text-decoration: none;
     color: white;
 }
-@media screen and (max-width:768px){
+
+@media  (max-width:768px){
     .video {
        height: 50vh;
+     
     }
     .bttnn{
         font-size: 10px;
@@ -82,20 +84,19 @@ align-items: center;
         text-decoration: none;
     } 
     .textfirst  {
-     margin-left: 2px;
+        margin-top: 5px;
+       margin-left: 2px;
         font-size: 35px;
         font-family: 800;
-       margin-bottom: 10rem;
+       margin-bottom: 10px;
         color: white;
     }
     h2{
-        margin-top:10px;
-        font-family: 800;
-        text-align: center;
-        align-items: center;
+        margin-top:5px;
+     
         font-size: 30px;
-      padding-top: 0;
-          margin-left:10px ;
+         padding-top: 0;
+          margin-left:5px ;
     }
     p{
     font-size: 20px;
@@ -104,4 +105,21 @@ align-items: center;
     text-align: left;
     }
      
+}
+@media(min-width:998px) and (max-width:"980px"){
+    .textfirst  {
+        margin-bottom: 90px;
+   
+ 
+    }
+    h2{
+        margin-top:5px;
+     
+        font-size: 30px;
+         padding-top: 0;
+          margin-left:5px ;
+    }
+    .bttnn{
+       margin-bottom: 40px;
+       }
 }

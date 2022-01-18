@@ -1,12 +1,12 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
- * {
+ /* * {
 	box-sizing: border-box;
 	margin: 30px;
 	padding: 0;	
 	font-family: Raleway, sans-serif;
-} 
+}  */
 
 /* body {
 	background:white;	
@@ -22,6 +22,7 @@
 	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
+	margin-top: 30px;
 }
 
 .screenn {		
@@ -37,17 +38,6 @@
 	position: relative;	
 	height: 100%;
 }
-
-/* .screen__background {		
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 0;
-	-webkit-clip-path: inset(0 0 0 0);
-	clip-path: inset(0 0 0 0);	
-} */
 
 .screen__background__shape {
 	transform: rotate(45deg);
@@ -144,8 +134,12 @@
 
 
 .login__submit:hover {
-	border-color: #14163a;
+	border-color: #577756;
 	outline: none;
 }
 
-
+@media (max-width: 767px) {
+	.containerr {
+	width: 100%;
+	}
+}

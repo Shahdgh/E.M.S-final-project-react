@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar"
 import { Route, Routes, useNavigate } from "react-router"
 import { useEffect, useState } from "react"
-import "./App.css"
+// import "./App.css"
 import SectionOne from "./components/SectionOne"
 import SignLogin from "./pages/SignLogin"
 import PatientLogin from "./pages/PatientLogin"

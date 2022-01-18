@@ -1,4 +1,7 @@
 @media (max-width: 767px) {
+    .vanbaaar{
+        height: 10vh;
+    }
     .navbar-collapse
       {
           font-size: small;
@@ -6,16 +9,21 @@
          padding-left: 4px;
           z-index: 99;
       }
-      .carousel-inner > .item > img {
+      .Brand{
+          width:230px ;
+      height: 50px;
+      margin-left: 3px;
+    } 
+      .carousell > img {
         position: absolute;
         top: 0;
         left: 0;
         min-width: 100%;
-        height: 500px;
+        height: 500vh;
     }
  
   }
-  @media (max-width:970px) {
+  @media  (min-width:768) and (max-width:970px) {
     .navbar-collapse
       {
           font-size: small;
@@ -23,12 +31,13 @@
          padding-left: 4px;
           z-index: 99;
       }
-      .carousel-inner  > img {
+  
+      .carousell > img {
         position: absolute;
         top: 0;
         left: 0;
         min-width: 100%;
-        height: 500px;
+        height: 500vh;
     }
  
   }
