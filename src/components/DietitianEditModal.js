@@ -14,7 +14,7 @@ function DietitianEditModal(props) {
           <Modal.Title style={{ color: "white" }}>Edit profile</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form.Group as={Row} className="mb-3">
+          {/* <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
               First Name
             </Form.Label>
@@ -29,7 +29,7 @@ function DietitianEditModal(props) {
             <Col md="8">
               <Form.Control type="text" name="lastName" defaultValue={profileDietitians.lastName} />
             </Col>
-          </Form.Group>
+          </Form.Group> */}
 
           <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">

@@ -11,9 +11,7 @@ function ProfileEmployee() {
   console.log(profileEmployees)
   return (
     <>
-      
       <EmployeeInformation key={profileEmployees._id} />
-  
     </>
   )
 }

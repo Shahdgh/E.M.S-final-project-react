@@ -15,11 +15,6 @@ function ProfileCompanion(props) {
   return (
     <>
       <CompanionInformation key={profileCompanions._id} />
-
-     
-      
-
-    
     </>
   )
 }
