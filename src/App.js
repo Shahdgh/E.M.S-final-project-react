@@ -265,8 +265,8 @@ function App() {
     try {
       const form = e.target
       const dietitianBody = {
-        // firstName: form.elements.firstName.value,
-        // lastName: form.elements.lastName.value,
+        firstName: form.elements.firstName.value,
+        lastName: form.elements.lastName.value,
         avatar: form.elements.avatar.value,
         phone: form.elements.phone.value,
         email: form.elements.email.value,
