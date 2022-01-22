@@ -601,8 +601,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/meals" element={localStorage.tokenDietitian || localStorage.tokenPatient ? <Meals /> : null} />
-
+          <Route path="/meals" element={ <Meals /> } />
+          {/* localStorage.tokenDietitian || localStorage.tokenPatient ? */}
           <Route path="/my-meals" element={<MyMeals />} />
 
           <Route path="/all-login" element={<AllLogin />} />

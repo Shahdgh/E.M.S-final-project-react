@@ -6,7 +6,7 @@ import { Col, Row } from "react-bootstrap"
 function Meals(props) {
   
   const { mealPatients } = useContext(HospitalsContext)
-
+  if (!mealPatients) return <h1>Loading...</h1>
   return (
     <>
      
